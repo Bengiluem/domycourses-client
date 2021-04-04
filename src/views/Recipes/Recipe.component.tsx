@@ -3,6 +3,8 @@ import { withRouter } from "react-router";
 
 import { useRecoilState } from "recoil";
 import { makeStyles } from "@material-ui/core/styles";
+
+import Container from "@material-ui/core/Container";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -57,7 +59,7 @@ const Recipe: React.FC = (): JSX.Element => {
   };
 
   return (
-    <>
+    <Container maxWidth="md">
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
@@ -81,7 +83,7 @@ const Recipe: React.FC = (): JSX.Element => {
       <Button style={{ width: "200px" }} onClick={() => handleAdd()}>
         Add new recipe !
       </Button>
-    </>
+    </Container>
   );
 };
 
