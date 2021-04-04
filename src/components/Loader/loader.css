@@ -1,0 +1,11 @@
+.LoadingSpinner.page-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.LoadingSpinner > div {
+  color: #073C4C;
+}

@@ -15,6 +15,8 @@ import Routes from "./Routes";
 
 import Sidebar from "./components/Sidebar";
 
+import Loader from "./components/Loader";
+
 function App() {
   return (
     <RecoilRoot>
@@ -22,7 +24,7 @@ function App() {
         <Sidebar />
         <div>
           <Switch>
-            <Suspense fallback={<div>Chargement...</div>}>
+            <Suspense fallback={<Loader pageCentered />}>
               {Routes.map((route: any) => (
                 <Route exact path={route.path} key={route.path}>
                   <route.component />
