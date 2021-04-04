@@ -1,3 +1,7 @@
+# DoMyCourses
+
+This repository is a small web application to automate your grocery shopping. Basically, you provide the application a list of recipes (from website urls or manually) you want to do the following week, and the application computes your final grocery list.  
+The application relies on a ReactNative front-end & a Django backend.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
