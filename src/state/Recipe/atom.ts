@@ -8,6 +8,7 @@ export interface IRecipe {
   id: string;
   name: string;
   link: string;
+  quantity?: number;
 }
 
 export const recipesState: RecoilState<IRecipe[]> = atom<IRecipe[]>({
@@ -18,6 +19,7 @@ export const recipesState: RecoilState<IRecipe[]> = atom<IRecipe[]>({
       name: "Pudding",
       link:
         "https://www.marmiton.org/recettes/recette_le-pudding-de-quand-j-etais-p-tite_31801.aspx",
+      quantity: 0,
     },
   ], // default value (aka initial value)
 });
