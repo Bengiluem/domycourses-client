@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { withRouter } from "react-router";
 
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
@@ -12,7 +12,7 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
-import { useRecoilCallback, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 
 import recipesState, { IRecipe } from "../../state/Recipe/atom";
 
@@ -47,15 +47,11 @@ function Cart() {
     setChecked(newChecked);
   };
 
-  const yourPostQuery = async () => {
+  const yourPostQuery = async (shoppingCart: ICart) => {
     const response = await postCartQuery(
-      cart.items.map((item) => item.recipe.link)
+      shoppingCart.items.map((item) => item.recipe.link)
     );
     const body = await response.json();
-    setCart({
-      ...cart,
-      response: body,
-    });
   };
 
   const handleQuantityChanged = (id: string, value: number) => {
@@ -85,7 +81,8 @@ function Cart() {
       { items: [], response: null }
     );
     setCart(newCart);
-    await yourPostQuery();
+
+    await yourPostQuery(newCart);
   };
 
   return (
